@@ -1,0 +1,19 @@
+
+
+.nav-item a {
+    font-size: 25px; 
+  }
+
+.nav-item i{
+    font-size: 30px;
+}
+
+.nav-item span{
+    font-size: 20px;
+    width: 40px;
+    padding: 10px;
+    border-radius: 30%;
+    font-weight: 600;
+    background-color: white;
+
+}
