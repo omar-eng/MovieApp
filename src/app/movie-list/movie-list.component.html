@@ -1,1 +1,17 @@
-<p>movie-list works!</p>
+
+
+<div class="row">
+  <div class="col-sm-8">
+    <input type="search" [(ngModel)]="title" id="mysearch" class="form-control" placeholder="MovieName" style="margin-bottom: 10px;">
+  </div>
+  <div class="col-sm-4">
+    <button type="button" class="btn btn-danger" (click)="Search()" style="margin-bottom: 10px;">Search</button>
+  </div>
+</div>
+    <h1 class="mb-3">Popular Movies</h1>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    @for (movie of movies ; track movie.id; let i =$index) {
+            <app-movie-card [movie]="movie" (sendToparent)="recievedFromchild($event)"></app-movie-card>
+    }@empty {
+    }
+  </div>
