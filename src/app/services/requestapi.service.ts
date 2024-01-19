@@ -8,10 +8,15 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class RequestapiService {
 
-    api_key = "7fdb7be812e267b304a317210bb859e6";
+  api_key = "7fdb7be812e267b304a317210bb859e6";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getpopularmovies(): Observable<any>{
-    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}`);  }
+  getpopularmovies(): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}`);
+  };
+
+  searchMovie(movieName: string): Observable<any> {
+    return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${movieName}`);
+  }
 }

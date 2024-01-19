@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { WishlistService } from '../services/wishlist.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,5 +10,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+  wishlistCounter!: number;
+  constructor(private wishListService: WishlistService) {}
+  ngOnInit() {
+    this.wishListService.getWishListCounter().subscribe((value) => this.wishlistCounter = value);
+  }
 }
