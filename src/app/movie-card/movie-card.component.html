@@ -1,12 +1,10 @@
 
-    <div class="card h-100 z-index mycard" >
-        <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" class="card-img-top" [alt]="movie.title">
+    <div class="card-body h-100 z-index mycard " >
+      <div (click)="details(movie.id)">
+        <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" class="card-img-top mycard details" [alt]="movie.title"   >
+      </div>
         <div class="card-body">
-       
-         
-          <h4 class="card-title" [ngClass]="movie.adult ?'text-success':''">{{movie.title}}   
-        
-        </h4>
+          <h2 >{{movie.title}}</h2>
         <div class="row font-weight-bold mt-3">
         <div class="col-9">
           <p class=" mr-2 date">{{ movie.release_date }}</p>

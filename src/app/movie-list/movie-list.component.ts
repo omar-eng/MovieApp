@@ -5,11 +5,10 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 import {FormsModule} from '@angular/forms';
 import {NgModel} from '@angular/forms';
 import { RequestapiService } from '../services/requestapi.service';
-
-@Component({
+import { NgbPaginationConfig, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';@Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [CommonModule,MovieCardComponent,FormsModule],
+  imports: [CommonModule,MovieCardComponent,FormsModule,NgbPaginationModule],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.css'
 })
@@ -17,25 +16,40 @@ export class MovieListComponent {
  movies?:Movie[];
  movie?:Movie;
  title?:string;
+ page = 1;
+ pageSize = 12;  
 
- constructor(private movierequestService: RequestapiService){}
+ constructor(private movierequestService: RequestapiService , private config: NgbPaginationConfig){
+
+ }
 
 
  ngOnInit() {
-  this.movierequestService.getpopularmovies().subscribe((data)=>{
-    console.log(data);
-    this.movies=data.results;
-    console.log(this.movies);
-  })
- }
-
- 
-
-
-recievedFromchild(id:number){
-  this.movies=this.movies?.filter((movie: { id: number; }) => movie.id!==id);
+  this.loadMovies();
+  this.loadSecondPage();
+  this.loadthirdpage();
 }
- Search(){
 
- }
+loadMovies() {
+  this.movierequestService.getpopularmovies().subscribe((data) => {
+    this.movies = data.results;
+  });
+}
+
+loadSecondPage() {
+  this.movierequestService.getpopularmoviess().subscribe((data) => {
+    this.movies = this.movies?.concat(data.results);
+  });
+}
+
+loadthirdpage() {
+  this.movierequestService.getpopularmoviess().subscribe((data) => {
+    this.movies = this.movies?.concat(data.results);
+  });
+}
+
+
+
+
+
 }

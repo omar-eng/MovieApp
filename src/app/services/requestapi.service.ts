@@ -13,5 +13,22 @@ export class RequestapiService {
   constructor(private http:HttpClient) { }
 
   getpopularmovies(): Observable<any>{
-    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}`);  }
+    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}&page=1`);
+    }
+  getpopularmoviess(): Observable<any>{
+    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}&page=2`);
+    }
+  getpopularmoviesss(): Observable<any>{
+    return this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.api_key}&page=3`);
+    }
+
+    getmoviedetails(id:number) { 
+      return this.http.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${this.api_key}`);
+    }
+
+    getmovierecomind(id: number)
+    {
+      return this.http.get(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${this.api_key}`);
+
+    }
 }
