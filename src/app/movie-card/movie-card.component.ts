@@ -3,11 +3,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WishlistService } from '../services/wishlist.service';
 import { Router } from '@angular/router';
+import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,NgbProgressbarModule],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.css'
 })

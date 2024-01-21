@@ -1,0 +1,39 @@
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+    background-color: yellow !important;
+    color: black;
+    width: 4rem; 
+    height: 3rem;
+    padding-top: 10px;
+    padding-left: 20px;    font-size: large;
+    font-weight: 600;
+    border-radius: 5px;
+    align-items: center;
+    align-content: center;
+    transition-duration: 0.3s;
+
+}
+
+ngb-pagination ::ng-deep ul > li.active > a {
+    background-color: black !important;
+    color: yellow;
+    width: 5rem; 
+    padding-top: 15px;
+    padding-left: 30px;
+    height: 4rem;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 600;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    transition-duration: 0.3s;
+
+}
+
+
+ngb-pagination ::ng-deep ul {
+    width: 25rem !important;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+}
