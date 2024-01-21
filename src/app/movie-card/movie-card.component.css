@@ -15,3 +15,8 @@
     box-shadow: 20px rgba(0,0 green,0 blue,0.8 alpha);
     border-radius: 20px;
 }
+
+.details{
+    cursor: pointer;
+}
+
