@@ -25,17 +25,37 @@ export class MovieListComponent {
 
 
  ngOnInit() {
-  this.movierequestService.getpopularmovies().subscribe((data)=>{
-    console.log(data);
-    this.movies=data.results;
-    console.log(this.movies);
-  })
+  this.loadMovies();
+  this.loadSecondPage();
+  this.loadthirdpage();
+}
+
+loadMovies() {
+  this.movierequestService.getpopularmovies().subscribe((data) => {
+    this.movies = data.results;
+  });
+}
+
+loadSecondPage() {
+  this.movierequestService.getpopularmoviess().subscribe((data) => {
+    this.movies = this.movies?.concat(data.results);
+  });
+}
+
+loadthirdpage() {
+  this.movierequestService.getpopularmoviess().subscribe((data) => {
+    this.movies = this.movies?.concat(data.results);
+  });
+}
+onPageChange() {
+  document.documentElement.scrollTop = 0;
+// console.log("page changed");
+}
  }
 
  
 
 
-recievedFromchild(id:number){
-  this.movies=this.movies?.filter((movie: { id: number; }) => movie.id!==id);
-}
-
+// recievedFromchild(id:number){
+//   this.movies=this.movies?.filter((movie: { id: number; }) => movie.id!==id);
+// }

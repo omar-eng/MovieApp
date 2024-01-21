@@ -2,7 +2,8 @@
   <div (click)="details(movie.id)">
     <div class="image-container">
       <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" class="card-img-top mycard details" [alt]="movie.title">
-      <ngb-progressbar class="mb-3" type="dark" textType="white" [value]="movie.vote_average*10" [showValue]="true" [max]="100" />
+      <ngb-progressbar class="m-3" type="dark" textType="yellow" [value]="movie.vote_average*10" [showValue]="true"
+      [max]="100" style="background-color: yellow;  height: 30px;" />
     </div>
   </div>
   <div class="card-body">

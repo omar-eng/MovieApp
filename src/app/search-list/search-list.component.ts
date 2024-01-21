@@ -18,7 +18,15 @@ export class SearchListComponent {
 
   }
   ngOnInit() {
+
+    this.activatedRoute.params.subscribe(params => {
+      this.searchKey = params['searchKey'];
+      this.serarch();
+
+    })
+  }
+  serarch() {
     this.searchKey = this.activatedRoute.snapshot.params['searchKey'];
-    this.movierequestService.searchMovie(this.searchKey).subscribe((response: any) => this.movies =response.results);
+    this.movierequestService.searchMovie(this.searchKey).subscribe((response: any) => this.movies = response.results);
   }
 }

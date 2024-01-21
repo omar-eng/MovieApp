@@ -22,8 +22,8 @@
             <span class="mx-2">({{movie.vote_count}})</span>
           <p class="mb-4 h5"> {{movie.overview}}</p>
           <p>
-            <span *ngFor="let cat of movie.genres" class="btn btn-warning m-2 rounded font-weight-bold">
-              <span class="badge bg-warning m-2 fs-6" style="color: black;">{{ cat.name }}</span>
+            <span *ngFor="let cat of movie.genres" class="btn  m-2 rounded font-weight-bold">
+              <span class="badge  m-2 fs-6 p-3" style="color: black; background-color: yellow;">{{ cat.name }}</span>
             </span>
           </p>
           <p>
@@ -32,7 +32,7 @@
             <span class="ml-5 font-weight-bold lang">Language :</span>
             
             <span *ngFor="let item of movie.spoken_languages" class="mr-2">
-              <span class="badge bg-warning m-2 fs-6" style="color: black;">{{ item.english_name }}</span>
+              <span class="badge  m-2 fs-6" style="color: black; background-color: yellow;">{{ item.english_name }}</span>
             </span>
           </p>
           
