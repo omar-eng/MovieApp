@@ -1,34 +1,23 @@
 import { Movie } from '../interfaces/movie';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
+import { WishlistService } from '../services/wishlist.service';
 import { Router } from '@angular/router';
 
-=======
-import { WishlistService } from '../services/wishlist.service';
->>>>>>> f9d9976a4ebdfb2ee4228f841548292ea3603e0f
 @Component({
   selector: 'app-movie-card',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.css'] // Corrected property name to styleUrls
+  styleUrl: './movie-card.component.css'
 })
 export class MovieCardComponent {
 
-<<<<<<< HEAD
-  isHeartFilled = true;
-
-  @Input() movie!: Movie;
-
-  constructor(private router: Router) {}
-=======
   isHeartFilled!: boolean;
 
   @Input() movie!: Movie;
->>>>>>> f9d9976a4ebdfb2ee4228f841548292ea3603e0f
 
-  constructor(private wishListService: WishlistService) {
+  constructor(private wishListService: WishlistService,private router: Router) {
    }
   ngOnInit() {
     this.isHeartFilled = this.wishListService.isMovieInWishList(this.movie);

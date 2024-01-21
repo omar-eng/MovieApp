@@ -4,6 +4,8 @@ import { DetailsDetailsComponent } from '../details-details/details-details.comp
 import { DetailsRecomindComponent } from '../details-recomind/details-recomind.component';
 import { Genre, Movie } from '../interfaces/movie';
 import { ActivatedRoute } from '@angular/router';
+import { WishlistService } from '../services/wishlist.service';
+
 @Component({
   selector: 'app-movie-details',
   standalone: true,
@@ -17,13 +19,16 @@ export class MovieDetailsComponent implements OnInit {
   genre?: number;
   @Input() id: number = -1;
   myrecomind?: Movie[];
+  isHeartFilled!: boolean;
 
   constructor(
-    private getmoviedetailsService: RequestapiService,
+    private getmoviedetailsService: RequestapiService,private wishListService: WishlistService,
     private getrecomindService: RequestapiService, private activatedroute:ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.isHeartFilled = this.wishListService.isMovieInWishList(this.movie);
+
     this.activatedroute.params.subscribe(params => {
       this.id = params['id'];
       // console.log(this.id);
