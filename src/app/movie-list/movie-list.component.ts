@@ -28,10 +28,6 @@ export class MovieListComponent {
     console.log(this.movies);
   })
  }
-
- 
-
-
 recievedFromchild(id:number){
   this.movies=this.movies?.filter((movie: { id: number; }) => movie.id!==id);
 }
